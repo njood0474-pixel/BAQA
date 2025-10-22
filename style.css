@@ -1,0 +1,52 @@
+
+:root{
+  --bg:#0f1220; --fg:#ecf3ff; --muted:#b8c3e6; --card:#141a2e; --border:#22305a;
+  --accentA:#19a2ae; --accentB:#1d66ff; --accentC:#46d38f;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap");
+html, body, [class*="css"]  {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial !important;
+  color: var(--fg);
+}
+body { background: var(--bg); }
+#MainMenu, header, footer {visibility:hidden;}
+.block-container {padding-top:.5rem; padding-bottom:.5rem;}
+
+/* Topbar */
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  background:#0d1225cc; backdrop-filter: blur(8px);
+  border:1px solid #1f2a50; border-radius:14px; padding:10px 14px; margin-bottom:10px;
+}
+.brand{display:flex; gap:10px; align-items:center}
+.brand .title{font-weight:700;}
+.rolepill{font-size:.82rem; padding:.2rem .6rem; border-radius:999px; border:1px solid var(--border); background:#0f1c3a; color:var(--fg);}
+.card{background:var(--card); border:1px solid var(--border); border-radius:14px; padding:14px;}
+.kpi .label{color:var(--muted); font-size:.82rem;} .kpi .value{font-weight:700; font-size:1.4rem;}
+.hero{background: radial-gradient(1100px 420px at 25% -10%, #1b2243 0%, #0f1220 55%, #0f1220 100%); border:1px solid #222a4d; border-radius:18px; padding:20px;}
+.subtitle{color:var(--muted);}
+
+/* Splash */
+.splash{
+  position:relative; overflow:hidden; border-radius:18px; border:1px solid #1e2952; padding:24px; height:460px;
+  background: radial-gradient(1200px 600px at 10% -20%, #172246 0%, rgba(15,18,32,0.0) 60%),
+              radial-gradient(900px 520px at 110% 20%, #0c2a37 0%, rgba(15,18,32,0.0) 60%), #0f1220;
+}
+.logoGlow{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:150px; height:150px; border-radius:50%;
+  box-shadow:0 0 40px rgba(29,102,255,.35), 0 0 80px rgba(70,211,143,.28); }
+.dot{ position:absolute; width:10px; height:10px; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #a6d6ff, #1d66ff);
+  box-shadow:0 0 10px rgba(29,102,255,.8); animation: float 12s ease-in-out infinite; }
+.dot.g{ background: radial-gradient(circle at 30% 30%, #b6ffd8, #46d38f); box-shadow:0 0 10px rgba(70,211,143,.9); }
+@keyframes float { 0%{ transform:translate(0,0) scale(1); opacity:.8;} 40%{ transform:translate(30px,-22px) scale(1.15); opacity:1;}
+  70%{ transform:translate(-26px,12px) scale(.95); opacity:.9;} 100%{ transform:translate(0,0) scale(1); opacity:.8;} }
+.line{ position:absolute; width:2px; height:120px; background: linear-gradient(180deg, rgba(70,211,143,.0), rgba(70,211,143,.45), rgba(29,102,255,.0));
+  filter: blur(.3px); transform-origin: top center; opacity:.65; animation: pulse 3.6s ease-in-out infinite; }
+@keyframes pulse { 0%,100% {opacity:.35;} 50% {opacity:.8;} }
+.introText{ position:absolute; left:50%; top:72%; transform:translateX(-50%); text-align:center; width:min(92%,860px); opacity:0; animation: fadeIn 1.6s ease forwards; animation-delay:2.2s; }
+@keyframes fadeIn { to {opacity:1;} }
+
+/* Gauge */
+.gauge{ height:180px; width:100%; background: conic-gradient(#222d56 0 240deg, #0f1220 240deg); border-radius:0 0 1000px 1000px; position:relative; border:1px solid #26315a; }
+.gauge .needle{ position:absolute; left:50%; bottom:0; width:4px; height:90%; background: linear-gradient(var(--accentB),var(--accentC)); transform-origin:bottom center; }
+.tag{ display:inline-block; padding:.25rem .6rem; border-radius:999px; background:#10213f; border:1px solid var(--border); color:var(--fg); font-size:.85rem; }
